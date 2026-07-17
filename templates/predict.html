@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Energy Consumption Prediction</title>
+</head>
+
+<body>
+
+<h1>Energy Consumption Prediction</h1>
+
+<hr>
+
+<nav>
+    <a href="/">🏠 Home</a> |
+    <a href="/dashboard">📊 Dashboard</a> |
+    <a href="/predict">⚡ Prediction</a>
+</nav>
+
+<hr>
+
+<form method="post">
+
+    <h3>Enter Input Values</h3>
+
+    <label>Lagging Current Reactive Power (kVarh)</label><br>
+    <input type="number" step="any"
+           name="Lagging_Current_Reactive_Power_kVarh"
+           required><br><br>
+
+    <label>Leading Current Reactive Power (kVarh)</label><br>
+    <input type="number" step="any"
+           name="Leading_Current_Reactive_Power_kVarh"
+           required><br><br>
+
+    <label>CO2 (tCO2)</label><br>
+    <input type="number" step="any"
+           name="CO2_tCO2"
+           required><br><br>
+
+    <label>Lagging Current Power Factor</label><br>
+    <input type="number" step="any"
+           name="Lagging_Current_Power_Factor"
+           required><br><br>
+
+    <label>Leading Current Power Factor</label><br>
+    <input type="number" step="any"
+           name="Leading_Current_Power_Factor"
+           required><br><br>
+
+    <label>NSM</label><br>
+    <input type="number"
+           name="NSM"
+           required><br><br>
+
+    <label>Week Status</label><br>
+    <select name="WeekStatus" required>
+        <option value="0">Weekday</option>
+        <option value="1">Weekend</option>
+    </select><br><br>
+
+    <label>Day of Week</label><br>
+    <select name="Day_of_week" required>
+        <option value="0">Monday</option>
+        <option value="1">Tuesday</option>
+        <option value="2">Wednesday</option>
+        <option value="3">Thursday</option>
+        <option value="4">Friday</option>
+        <option value="5">Saturday</option>
+        <option value="6">Sunday</option>
+    </select><br><br>
+
+    <label>Load Type</label><br>
+    <select name="Load_Type" required>
+        <option value="0">Light Load</option>
+        <option value="1">Medium Load</option>
+        <option value="2">Maximum Load</option>
+    </select><br><br>
+
+    <button type="submit">
+        Predict Energy Consumption
+    </button>
+
+</form>
+
+{% if prediction is not none %}
+
+<hr>
+
+<h2>Prediction Result</h2>
+
+<h1>{{ prediction }} kWh</h1>
+
+{% endif %}
+
+</body>
+</html>
